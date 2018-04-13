@@ -1,0 +1,22 @@
+{
+  "name": "AFQ-Browser",
+  "label": "AFQ-Browser: browser-based visualization of AFQ results",
+  "description": "This creates an interactive viewer for AFQ data",
+  "maintainer": "Michael Perry <lmperry@stanford.edu>",
+  "author": "Ariel Rokem (@arokem)",
+  "url": "https://github.com/yeatmanlab/AFQ-Browser",
+  "source": "https://github.com/scitran-apps/afq-browser",
+  "license": "BSD-3-Clause",
+  "flywheel": "0",
+  "version": "0.2.4",
+  "custom": {
+    "docker-image": "scitran/afq-browser:0.2.4"
+  },
+  "config": {
+    "option_name": {
+      "default": false,
+      "type": "boolean",
+      "description": "Description is a sentence"
+        }
+    }
+}
