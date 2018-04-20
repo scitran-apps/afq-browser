@@ -1,0 +1,52 @@
+#!/usr/bin/env python
+
+import os
+import os.path as op
+import json
+## 
+FLYWHEEL_BASE = '/flywheel/v0'
+MANIFEST_FILE = op.join(FLYWHEEL_BASE, 'manifest.json')
+CONFIG_FILE = op.join(FLYWHEEL_BASE, 'config.json')
+INPUT_DIR = op.join(FLYWHEEL_BASE, 'input')
+OUTPUT_DIR = op.join(FLYWHEEL_BASE, 'output')
+CONTAINER = '[flywheel|afq-browser]'
+
+## Parse config: 
+
+# If the config file doesn't exist, we create the config from 
+# the manifest defailts instead:
+if not op.exists(CONFIG_FILE):
+    manifest = json.loads(open(MANIFEST_FILE, 'r').read())
+    config = manifest['config']
+else:
+    config = json.loads(open(CONFIG_FILE, 'r').read())
+
+title = config['title']    
+
+## Validate input data
+if len(os.listdir(INPUT_DIR)) > 0: 
+    print("%s starting"%CONTAINER)
+else: 
+    print("Input directory is empty: %s"%INPUT_DIR)
+
+input_file = op.join(INPUT_DIR, 'afq.mat')
+
+## Call the algorithm
+from afqbrowser.browser import assemble
+assemble(input_file, 
+         target=OUTPUT_DIR, 
+         metadata=None, 
+         title=title, 
+         subtitle=False, 
+         link=False, 
+         sublink=False)
+
+## Handle output files
+
+# The output is in a directory, so we have to zip it up:
+import shutil
+shutil.make_archive(op.join(OUTPUT_DIR, 'AFQ-Browser'), 
+                    'zip', 
+                    op.join(OUTPUT_DIR, 'AFQ-Browser', 'client'))
+# Remove the unzipped version
+shutil.rmtree(op.join(OUTPUT_DIR, 'AFQ-Browser'))
