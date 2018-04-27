@@ -20,9 +20,12 @@ CONTAINER = '[flywheel|afq-browser]'
 if not op.exists(CONFIG_FILE):
     manifest = json.loads(open(MANIFEST_FILE, 'r').read())
     config = manifest['config']
+    print("Creating config from the manifest")
 else:
     config = json.loads(open(CONFIG_FILE, 'r').read())
+    print("Creating config from file: ", CONFIG_FILE)
 
+print(config)
 title = config['title']    
 
 ## Validate input data
