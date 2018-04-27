@@ -31,7 +31,7 @@ if len(os.listdir(INPUT_DIR)) > 0:
 else: 
     print("Input directory is empty: %s"%INPUT_DIR)
 
-input_file = glob(op.join(INPUT_DIR, 'afq*.mat'))
+input_file = glob(op.join(INPUT_DIR, 'afq*.mat'))[0]
 
 ## Call the algorithm
 from afqbrowser.browser import assemble

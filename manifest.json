@@ -2,7 +2,7 @@
 	"name": "afq-browser",
 	"label": "afq-browser",
 	"description": "This software generates a browser-based visualization of data processed with the Automated Fiber Quantification (AFQ) software [Gear created with gear builder.]",
-	"version": "0.1",
+	"version": "0.2",
 	"inputs": {
 		"AFQ_file": {
 			"base": "file",

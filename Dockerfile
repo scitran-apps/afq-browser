@@ -34,6 +34,7 @@ ENV FLYWHEEL /flywheel/v0
 RUN mkdir -p ${FLYWHEEL}
 WORKDIR ${FLYWHEEL}
 
+ENV BUSTCACHE 4
 # Add manifest
 COPY manifest.json ${FLYWHEEL}/manifest.json
 # Add run file 
