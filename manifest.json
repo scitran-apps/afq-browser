@@ -1,27 +1,29 @@
 {
-  "name": "AFQ-Browser",
-  "label": "AFQ-Browser: browser-based visualization of AFQ results",
-  "description": "This software generates a browser-based visualization of data processed with the Automated Fiber Quantification (AFQ) software",
-  "maintainer": "Michael Perry <lmperry@stanford.edu>",
-  "author": "Ariel Rokem (@arokem)",
-  "url": "https://github.com/yeatmanlab/AFQ-Browser",
-  "source": "https://github.com/scitran-apps/afq-browser",
-  "license": "BSD-3-Clause",
-  "version": "0.2.4",
-  "custom": {
-    "docker-image": "scitran/afq-browser:0.2.4"
-  },
-  "config": {
-    "title": {
-      "default": "AFQ-browser",
-      "type": "string",
-      "description": "A title for the AFQ-browser web-page"
-        }
-    },
-    "inputs":{
-      "AFQ_file":{
-        "description": "An AFQ processed .mat file",
-        "base": "file"
-      }
-    }
+	"name": "afq-browser",
+	"label": "afq-browser",
+	"description": "This software generates a browser-based visualization of data processed with the Automated Fiber Quantification (AFQ) software [Gear created with gear builder.]",
+	"version": "0.1",
+	"inputs": {
+		"AFQ_file": {
+			"base": "file",
+			"description": "An AFQ processed .mat file"
+		}
+	},
+	"config": {
+		"title": {
+			"default": "AFQ-browser",
+			"description": "A title for the AFQ-browser web-page",
+			"type": "string"
+		}
+	},
+	"author": "Ariel Rokem",
+	"maintainer": "Ariel Rokem",
+	"license": "BSD-3-Clause",
+	"source": "https://github.com/yeatmanlab/AFQ-Browser",
+	"url": "https://github.com/scitran-apps/afq-browser",
+	"custom": {
+		"gear-builder": {
+			"image": "afq-browser"
+		}
+	}
 }
