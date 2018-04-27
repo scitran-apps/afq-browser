@@ -7,9 +7,9 @@
   "url": "https://github.com/yeatmanlab/AFQ-Browser",
   "source": "https://github.com/scitran-apps/afq-browser",
   "license": "BSD-3-Clause",
-  "version": "0.2.4",
+  "version": "0.3.dev",
   "custom": {
-    "docker-image": "afq-browser:0.4"
+    "docker-image": "afq-browser:0.5"
   },
   "config": {
     "title": {

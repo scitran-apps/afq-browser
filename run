@@ -16,7 +16,7 @@ CONTAINER = '[flywheel|afq-browser]'
 ## Parse config: 
 
 # If the config file doesn't exist, we create the config from 
-# the manifest defailts instead:
+# the manifest defaults instead:
 if not op.exists(CONFIG_FILE):
     manifest = json.loads(open(MANIFEST_FILE, 'r').read())
     config = manifest['config']
@@ -25,16 +25,22 @@ else:
     config = json.loads(open(CONFIG_FILE, 'r').read())['config']
     print("Creating config from file: ", CONFIG_FILE)
 
-print(config)
+print("CONFIG: ", config)
 title = config['title']
 
 ## Validate input data
-if len(os.listdir(INPUT_DIR)) > 0: 
+print("INPUT_DIR: ", INPUT_DIR)
+ll = os.listdir(INPUT_DIR)
+print(ll)
+if len(ll) > 0: 
     print("%s starting"%CONTAINER)
 else: 
     print("Input directory is empty: %s"%INPUT_DIR)
 
-input_file = glob(op.join(INPUT_DIR, 'afq*.mat'))[0]
+try:
+    input_file = glob(op.join(INPUT_DIR, 'afq*.mat'))[0]
+except: 
+    input_file = glob(op.join(INPUT_DIR, 'AFQ_file', 'afq*.mat'))[0]
 
 ## Call the algorithm
 from afqbrowser.browser import assemble
@@ -47,6 +53,7 @@ assemble(input_file,
          sublink=False)
 
 ## Handle output files
+print(os.listdir(OUTPUT_DIR))
 
 # The output is in a directory, so we have to zip it up:
 import shutil
