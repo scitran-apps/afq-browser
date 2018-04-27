@@ -22,11 +22,11 @@ if not op.exists(CONFIG_FILE):
     config = manifest['config']
     print("Creating config from the manifest")
 else:
-    config = json.loads(open(CONFIG_FILE, 'r').read())
+    config = json.loads(open(CONFIG_FILE, 'r').read())['config']
     print("Creating config from file: ", CONFIG_FILE)
 
 print(config)
-title = config['title']    
+title = config['title']
 
 ## Validate input data
 if len(os.listdir(INPUT_DIR)) > 0: 
