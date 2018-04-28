@@ -52,13 +52,14 @@ assemble(input_file,
          link=False, 
          sublink=False)
 
-## Handle output files
-print(os.listdir(OUTPUT_DIR))
+# ## Handle output files
+# print(os.listdir(OUTPUT_DIR))
+# print(os.listdir(op.join(OUTPUT_DIR, 'AFQ-Browser')))
 
-# The output is in a directory, so we have to zip it up:
-import shutil
-shutil.make_archive(op.join(OUTPUT_DIR, 'AFQ-Browser'), 
-                    'zip', 
-                    op.join(OUTPUT_DIR, 'AFQ-Browser', 'client'))
-# Remove the unzipped version
-shutil.rmtree(op.join(OUTPUT_DIR, 'AFQ-Browser'))
+# # The output is in a directory, so we have to zip it up:
+# import shutil
+# shutil.make_archive(op.join(OUTPUT_DIR, 'AFQ-Browser'), 
+#                     'zip', 
+#                     op.join(OUTPUT_DIR, 'AFQ-Browser', 'client'))
+# # Remove the unzipped version
+# shutil.rmtree(op.join(OUTPUT_DIR, 'AFQ-Browser'))

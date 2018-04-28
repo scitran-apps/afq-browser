@@ -29,7 +29,7 @@ RUN pip install --upgrade setuptools
 # Install AFQ-Browser from my branch:
 RUN pip install git+https://github.com/arokem/AFQ-Browser.git@pathlib
 
-ENV BUSTCACHE 2
+ENV BUSTCACHE 4
 
 # Make directory for flywheel spec (v0)
 ENV FLYWHEEL /flywheel/v0
