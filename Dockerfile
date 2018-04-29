@@ -26,10 +26,12 @@ RUN apt-get update -qq \
 
 # We need to start by upgrading setuptools, or run into https://github.com/yeatmanlab/AFQ-Browser/issues/101
 RUN pip install --upgrade setuptools 
-# Install AFQ-Browser from my branch:
-RUN pip install git+https://github.com/arokem/AFQ-Browser.git@pathlib
 
-ENV BUSTCACHE 4
+# Bust the cache to force the next steps:
+ENV BUSTCACHE 2
+
+# Install AFQ-Browser from my branch:
+RUN pip install git+https://github.com/arokem/AFQ-Browser.git@zip
 
 # Make directory for flywheel spec (v0)
 ENV FLYWHEEL /flywheel/v0

@@ -9,7 +9,7 @@
   "license": "BSD-3-Clause",
   "version": "0.3.dev",
   "custom": {
-    "docker-image": "afq-browser:0.5"
+    "docker-image": "afq-browser:0.15"
   },
   "config": {
     "title": {
