@@ -58,7 +58,7 @@ print(glob('./*'))
 print(glob('./*/*',))
 
 import shutil
-shutil.move('AFQ-Browser.zip', op.join(OUTPUT_DIR, 'AFQ-Browser.zip'))
+shutil.move('AFQ-Browser.zip', op.join(OUTPUT_DIR, 'AFQ-Browser.html.zip'))
 
 print("After moving")
 print(glob('./*'))

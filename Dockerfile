@@ -22,13 +22,13 @@ RUN apt-get update -qq \
     python-numpy \
     python-pandas \
     python-scipy \
-    python-pip 
+    python-pip
 
 # We need to start by upgrading setuptools, or run into https://github.com/yeatmanlab/AFQ-Browser/issues/101
-RUN pip install --upgrade setuptools 
+RUN pip install --upgrade setuptools
 
 # Bust the cache to force the next steps:
-ENV BUSTCACHE 2
+ENV BUSTCACHE 11
 
 # Install AFQ-Browser from my branch:
 RUN pip install git+https://github.com/arokem/AFQ-Browser.git@zip
@@ -40,8 +40,8 @@ WORKDIR ${FLYWHEEL}
 
 # Add manifest
 COPY manifest.json ${FLYWHEEL}/manifest.json
-# Add run file 
-COPY run ${FLYWHEEL}/run  
+# Add run file
+COPY run ${FLYWHEEL}/run
 
 # Configure entrypoint
 ENTRYPOINT ["/flywheel/v0/run"]
